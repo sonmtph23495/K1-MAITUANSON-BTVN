@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f8f9ff;
+        padding: 20px;
+      }
+      nav ul li {
+        display: inline-block;
+        padding: 30px;
+      }
+      nav ul li a {
+        list-style: none;
+        text-decoration: none;
+        font-weight: bold;
+        color: black;
+        background: transparent;
+      }
+      nav ul li a:hover {
+        border-radius: 20px 25px;
+        padding: 20px 25px;
+        color: #0a0a0a;
+        background-color: #eff1ff;
+      }
+      .user a {
+        padding: 10px 20px;
+        border-radius: 20px 25px;
+        color: #000;
+        text-decoration: none;
+      }
+      .user a.signup {
+        background-color: #0f0f34;
+        color: #eff1ff;
+      }
+      .user a:hover {
+        color: #eff1ff;
+        background-color: #518dd2;
+      }
+      .sub-menu {
+        margin-top: 10px;
+        width: 389px;
+        height: 333px;
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        padding: 20px 25px;
+        border-radius: 15px;
+      }
+      nav ul li:hover .sub-menu {
+        display: block;
+      }
+      .sub-menu ul li {
+        display: block;
+        padding: 5px;
+      }
+      .sub-menu ul li a {
+        color: black;
+        text-decoration: none;
+        margin-top: 15px;
+      }
+      .sub-menu ul li a:hover {
+        color: #161617;
+        background-color: #f8f9ff;
+      }
+      .sub-menu-box {
+        display: flex;
+        justify-content: space-between;
+      }
+      .sub-menu-box ul li a {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        <li><a href="">FAMEWORK</a></li>
+        <li><a href="">DEMOS</a></li>
+        <li>
+          <a href="">RESOURCES</a>
+
+          <div class="sub-menu">
+            <div class="sub-menu-box">
+              <ul>
+                <p>Top Controls</p>
+                <li class="ul-menu">
+                  <a href="">Grid</a>
+                  <a href="">Chart</a>
+                  <a href="">Controls</a>
+                  <a href="">Financial Chart</a>
+                </li>
+              </ul>
+              <ul>
+                <p>Top Controls</p>
+                <li class="ul-menu">
+                  <a href="">API</a>
+                  <a href="">Blogs</a>
+                  <a href="">Knowledge Base</a>
+                  <a href="">Videos</a>
+                  <a href="">Forums</a>
+                  <a href="">Licensing</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <li><a href="">DOCUMENRATION</a></li>
+      </ul>
+      <div class="user">
+        <a href="" class="login">LOGIN</a>
+        <a href="" class="signup">SIGN UP</a>
+      </div>
+    </nav>
+  </body>
+</html>
