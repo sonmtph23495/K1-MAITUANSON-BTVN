@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: Poppins;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+}
+
+.container {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    background: #EFF0F1;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* hình trong quang viền  */
+.container::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 700px;
+    width: 310px;
+    height: 294px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background-color: #E5E7F0;
+    z-index: -1;
+    border-radius: 50%;
+  
+
+   
+}
+/* vòng tròn ở dưới  */
+.container::before {
+    content: '';
+    position: absolute;
+    bottom: -130px;
+    right: 730px;
+    width: 310px;
+    height: 294px;
+    background-color: #E5E7F0;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.header {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+color: var(--0-e-0-e-38, #0E0E38);
+font-family: Merriweather;
+font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.tabs span {
+    padding: 5px 15px;
+    background: #FFF;
+    border-radius: 15px;
+    color: var(--0-e-0-e-38, #0E0E38);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.collections {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.collection {
+    flex: 1;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.main-image {
+    padding-top: 20px ;
+    width: 90%;
+    height: auto;
+    border-radius: 15px 15px 0 0;
+}
+
+.sub-images {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+}
+
+.sub-images img {
+    width: 114px;
+    height: 92px;
+    border-radius: 10px;
+}
+
+.collection-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin: 0 0 25px 20px;
+    color: var(--0-e-0-e-38, #0E0E38);
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.collection-title span:last-child {
+color: var(--0-e-0-e-38, #0E0E38);
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.img1{
+    position: absolute;
+    right: 877px;
+    top: 84.5%;
+}
+.img2{
+    position: absolute;
+    right: 463px;
+    top: 84.5%;
+}
+
+.img3{
+    position: absolute;
+    right: 5%;
+    top: 84.5%;
+}
+.background-circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.blue {
+    width: 200px;
+    height: 200px;
+    background: #1e90ff;
+    top: 10%;
+    right: 10%;
+   
+}
+
+.gray {
+    width: 300px;
+    height: 300px;
+    background: #d3d3d3;
+    top: 20%;
+    left: 10%;
+    opacity: 0.5;
+}
