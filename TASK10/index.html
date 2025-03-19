@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Task 10: Viết hàm thực hiện đổ chỗ 3 số thành thứ tự tăng dần</h1>
+  </body>
+  <script>
+    function sortNumber(a, b, c) {
+      console.log(`Trước: a = ${a}, b = ${b}, c = ${c}`);
+      if (a > b) {
+        a = a + b;
+        b = a - b;
+        a = a - b;
+      }
+      if (a > c) {
+        a = a + c;
+        c = a - c;
+        a = a - c;
+      }
+      if (b > c) {
+        b = b + c;
+        c = b - c;
+        b = b - c;
+      }
+      console.log(`Sau: a = ${a}, b = ${b}, c = ${c}`);
+    }
+    sortNumber(5, 10, 3);
+  </script>
+</html>

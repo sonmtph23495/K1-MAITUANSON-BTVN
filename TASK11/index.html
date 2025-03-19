@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Task 11: Viết hàm kiểm tra 3 số có thể tạo thành 1 tam giác không</h1>
+  </body>
+  <script>
+    let a = parseFloat(prompt("Nhập số a:"));
+    let b = parseFloat(prompt("Nhập số b:"));
+    let c = parseFloat(prompt("Nhập số c:"));
+
+    function isTriangle(a, b, c) {
+      console.log(`a = ${a}, b = ${b}, c = ${c}`);
+      if (a + b > c && a + c > b && b + c > a) {
+        return true;
+      }
+      return false;
+    }
+    if (isTriangle(a, b, c)) {
+      console.log("Có thể tạo thành 1 tam giác");
+    } else {
+      console.log("Không thể tạo thành 1 tam giác");
+    }
+  </script>
+</html>
