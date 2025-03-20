@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Task 12: Viết hàm in ra số chính phương từ 2 - n</h1>
+  </body>
+  <script>
+    function printSquareNumber(n) {
+      for (let i = 2; i <= n; i++) {
+        if (Math.sqrt(i) % 1 === 0) {
+          console.log(i);
+        }
+      }
+    }
+    printSquareNumber(10); // 4 9
+    printSquareNumber(20); // 4 9 16
+  </script>
+</html>
