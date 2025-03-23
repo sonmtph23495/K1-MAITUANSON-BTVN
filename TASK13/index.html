@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>In Số Nguyên Tố</title>
+</head>
+
+<body>
+    <h1>Task 13: Viết hàm in ra các số nguyên tố từ 2 - n</h1>
+    <p id="result"></p> <!-- Thẻ này sẽ chứa kết quả -->
+</body>
+
+<script>
+    let n = prompt("Nhập số n: ");
+
+    function printPrimeNumber(n) {
+        let result = "Các số nguyên tố từ 2 đến " + n + " là: "; // Chuỗi kết quả
+
+        for (let i = 2; i <= n; i++) {
+            let isPrime = true;
+            for (let j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j === 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                result += i + " "; // Thêm số nguyên tố vào chuỗi
+            }
+        }
+
+        document.getElementById("result").innerText = result; // Hiển thị kết quả lên trang
+    }
+
+    printPrimeNumber(n);
+</script>
+
+</html>

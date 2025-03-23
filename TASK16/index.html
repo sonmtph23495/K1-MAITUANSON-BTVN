@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Task 16: Tính tiền taxi</h1>
+    <p id="result"></p> <!-- Thẻ này sẽ chứa kết quả -->
+    <script>
+        let km = prompt("Nhập số km: ");
+
+        function taxiBill(km) {
+            // Xử lý và in ra kết quả
+            if (km <= 0) {
+                document.getElementById("result").innerText = "Số km không hợp lệ";
+            } else if (km <= 1) {
+                document.getElementById("result").innerText = "Tiền taxi: " + 10000 + "đ";
+            } else if (km > 1 && km <= 30) {
+                document.getElementById("result").innerText = "Tiền taxi: " + 8000 * km + "đ";
+            } else if (km > 30) {
+                document.getElementById("result").innerText = "Tiền taxi: " + 7000 * km + "đ";
+            } else {
+                document.getElementById("result").innerText = "Số km không hợp lệ";
+
+            }
+
+        }
+
+        // Output:
+        taxiBill(km);
+    </script>
+
+</html>

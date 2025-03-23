@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Task 14: Tìm số lớn nhất trong 3 số</h1>
+    <p id="result"></p> <!-- Thẻ này sẽ chứa kết quả -->
+    <script>
+        // Input:
+        let a = prompt("Nhập số a: ");
+        let b = prompt("Nhập số b: ");
+        let c = prompt("Nhập số c: ");
+        function findMaxNumber(a, b, c) {
+            // Xử lý và in ra kết quả
+            if (a > b && a > c) {
+                document.getElementById("result").innerText = a;
+            } else if (b > a && b > c) {
+                document.getElementById("result").innerText = b;
+            } else {
+                document.getElementById("result").innerText = c;
+            }
+        }
+
+        // Output:
+        findMaxNumber(a, b, c);
+
+
+    </script>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Task 15: Kiểm tra số cùng dấu</h1>
+    <p id="result"></p> <!-- Thẻ này sẽ chứa kết quả -->
+    <script>
+        let a = prompt("Nhập số a: ");
+        let b = prompt("Nhập số b: ");
+        function isSameSign(a, b) {
+            // Viết logic kiểm tra 2 số cùng dấu ở đây
+            if ((a > 0 && b > 0) || (a < 0 && b < 0)) {
+                document.getElementById("result").innerText = "true";
+            } else {
+                document.getElementById("result").innerText = "false";
+            }
+        }
+        isSameSign(a, b);
+    </script>
+
+</html>
