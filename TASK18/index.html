@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Task 18: Viết hàm in ra bảng cửu chương</h1>
+    <p id="result"></p>
+</body>
+<script>
+    //Thực hiện viết hàm printMultiplicationTable() để in ra bảng cửu chương từ 1 đến 10 dựa vào vòng lặp for.
+    function printMultiplicationTable() {
+        let result = "";
+        for (let i = 1; i <= 10; i++) {
+            for (let j = 1; j <= 10; j++) {
+                result += `${i} x ${j} = ${i * j}<br>`;
+            }
+            result += "<br>";
+        }
+        document.getElementById("result").innerHTML = result;
+    }
+    printMultiplicationTable();
+</script>
+
+</html>

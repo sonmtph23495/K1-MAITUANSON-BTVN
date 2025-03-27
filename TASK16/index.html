@@ -11,27 +11,38 @@
     <h1>Task 16: Tính tiền taxi</h1>
     <p id="result"></p> <!-- Thẻ này sẽ chứa kết quả -->
     <script>
-        let km = prompt("Nhập số km: ");
-
         function taxiBill(km) {
-            // Xử lý và in ra kết quả
-            if (km <= 0) {
-                document.getElementById("result").innerText = "Số km không hợp lệ";
-            } else if (km <= 1) {
-                document.getElementById("result").innerText = "Tiền taxi: " + 10000 + "đ";
-            } else if (km > 1 && km <= 30) {
-                document.getElementById("result").innerText = "Tiền taxi: " + 8000 * km + "đ";
-            } else if (km > 30) {
-                document.getElementById("result").innerText = "Tiền taxi: " + 7000 * km + "đ";
-            } else {
-                document.getElementById("result").innerText = "Số km không hợp lệ";
 
+            // Chuyển đổi km sang số nếu nhập từ bàn phím
+            km = parseFloat(km);
+
+            // Kiểm tra tính hợp lệ của số km
+            if (isNaN(km) || km <= 0) {
+                document.getElementById("result").innerHTML = "Số Km Không Hợp Lệ ";
+
+                return;
             }
+
+            let fare = 0;
+            if (km <= 1) {
+                fare = 10000;
+            } else if (km <= 30) {
+                fare = 10000 + (km - 1) * 8000;
+            } else {
+                fare = 10000 + 29 * 8000 + (km - 30) * 7000; 10
+            }
+
+            // Hiển thị kết quả
+            document.getElementById("result").innerHTML = `Số tiền phải trả: ${fare} VNĐ`;
+
+
 
         }
 
-        // Output:
-        taxiBill(km);
+        // Nhập từ bàn phím và tính tiền
+        const kmInput = prompt("Nhập số km:");
+        taxiBill(kmInput);
+
     </script>
 
 </html>

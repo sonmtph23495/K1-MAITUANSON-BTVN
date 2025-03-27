@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Task 19: Viết hàm in ra tam giác cân theo ký tự đã nhập</h1>
+
+</body>
+<script>
+    //Thực hiện viết hàm printIsoscelesTriangle() để in ra tam giác cân cao n dòng theo ký tự nhập vào.
+    function printIsoscelesTriangle(n, character) {
+
+        // Xử lý và in ra kết quả
+        for (let i = 1; i <= n; i++) {
+            let space = "";
+            let star = "";
+            for (let j = 1; j <= n - i; j++) {
+                space += " ";
+            }
+            for (let k = 1; k <= 2 * i - 1; k++) {
+                star += character;
+            }
+            console.log(space + star);
+        }
+    }
+
+    // Test
+    printIsoscelesTriangle(5, "*");
+
+    // Output:
+
+    //     *
+    //    ***
+    //   *****
+    //  *******
+    // *********
+</script>
+
+</html>
