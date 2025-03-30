@@ -45,7 +45,6 @@
 
     <script>
         function taxSalary(salary) {
-            // Kiểm tra xem salary có phải là số và lớn hơn hoặc bằng 0 không
             if (isNaN(salary) || salary < 0) {
                 return "Thu nhập không hợp lệ";
             }
@@ -54,19 +53,18 @@
 
             // Tính thuế theo từng mức thu nhập
             if (salary > 80000000) {
-                tax += (salary - 80000000) * 0.3; // 30% cho phần trên 80 triệu
+                tax += (salary - 80000000) * 0.3;
                 salary = 80000000;
             }
             if (salary > 50000000) {
-                tax += (salary - 50000000) * 0.2; // 20% cho phần từ 50 triệu đến 80 triệu
+                tax += (salary - 50000000) * 0.2;
                 salary = 50000000;
             }
             if (salary > 25000000) {
-                tax += (salary - 25000000) * 0.1; // 10% cho phần từ 25 triệu đến 50 triệu
-                salary = 25000000;
+                tax += (salary - 25000000) * 0.1;
             }
             if (salary > 11000000) {
-                tax += (salary - 11000000) * 0.05; // 5% cho phần từ 11 triệu đến 25 triệu
+                tax += (salary - 11000000) * 0.05;
             }
 
             // In ra kết quả thuế
