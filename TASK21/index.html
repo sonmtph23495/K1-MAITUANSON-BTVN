@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>task 21
+
+    </h1>
+</body>
+<script>
+    // Thực hiện viết hàm cleanFalsyValues(arr) để nhận vào một mảng arr và loại bỏ các giá trị falsy có trong mảng đó.
+
+    // Ví dụ:
+
+    function cleanFalsyValues(arr) {
+        // Xử lý và in ra kết quả
+        return arr.filter(Boolean);
+
+    }
+    // Test
+    console.log(cleanFalsyValues([1, 0, "", null, "hello", undefined, NaN, 2, 3])); // Output: [1, "hello"]
+
+
+
+
+    //     Thực hiện viết hàm filterEvenNumbers(arr) để lọc lấy các số chẵn từ mảng arr.
+
+    // Ví dụ:
+
+    function filterEvenNumbers(arr) {
+        // Xử lý và in ra kết quả
+        return arr.filter(num => num % 2 === 0);
+    }
+    console.log(filterEvenNumbers([1, 2, 3, 4, 5, 6])); // Output: [2, 4, 6]
+    console.log(filterEvenNumbers([1, 3, 5, 7])); // Output: []
+    console.log(filterEvenNumbers([])); // Output: []
+    console.log(filterEvenNumbers([-2, -1, 0, 1, 2])); // Output: [-2, 0, 2]
+
+    // Test
+    //     Thực hiện viết hàm filterLongStrings(arr) để lọc lấy các chuỗi có độ dài lớn hơn 5 từ mảng arr.
+
+    // Ví dụ:
+
+    function filterLongStrings(arr) {
+        // Xử lý và in ra kết quả
+        return arr.filter(str => str.length > 5);
+    }
+
+    // Test
+    console.log(filterLongStrings(["hello", "world", "javascript", "nodejs"])); // Output: ["javascript", "nodejs"]
+    console.log(filterLongStrings(["hi", "hello world", "a b c", "goodbye!!"])); // Output: ["hello world", "goodbye!!"]
+    console.log(filterLongStrings(["hi", "bye", "yes"])); // Output: []
+    //     Tìm số lớn nhất trong mảng và vị trí của nó (Nếu có 2 số bằng nhau, lấy số đầu tiên tìm được).
+    // Tìm số nhỏ nhất trong mảng và vị trí của nó (Nếu có 2 số bằng nhau, lấy số đầu tiên tìm được).
+    // Tính trung bình cộng các số nguyên tố trong mảng, nếu mảng không có số nguyên tố nào, trả về null.
+    // Ví dụ:
+
+    function findMinMaxAverage(arr) {
+        if (arr.length === 0) return null;
+
+        let max = arr[0], maxIndex = 0;
+        let min = arr[0], minIndex = 0;
+        let sumPrimes = 0, countPrimes = 0;
+
+        function isPrime(num) {
+            if (num < 2) return false;
+            for (let i = 2; i * i <= num; i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+                maxIndex = i;
+            }
+            if (arr[i] < min) {
+                min = arr[i];
+                minIndex = i;
+            }
+            if (isPrime(arr[i])) {
+                sumPrimes += arr[i];
+                countPrimes++;
+            }
+        }
+
+        let primeAverage = countPrimes > 0 ? parseFloat((sumPrimes / countPrimes).toFixed(2)) : null;
+
+        return { max, maxIndex, min, minIndex, primeAverage };
+    }
+
+    // Test cases
+    console.log(findMinMaxAverage([3, 1, 4, 1, 5, 9, 2, 6])); // {max: 9, maxIndex: 5, min: 1, minIndex: 1, primeAverage: 3.33 }
+    console.log(findMinMaxAverage([5, 5, 2, 2, 1])); // {max: 5, maxIndex: 0, min: 1, minIndex: 4, primeAverage: 3.5 }
+    console.log(findMinMaxAverage([-3, 7, -8, 11, 0])); // {max: 11, maxIndex: 3, min: -8, minIndex: 2, primeAverage: 9 }
+
+
+
+
+
+
+
+
+    //     Cho trước một mảng chưa được sắp xếp.
+    // Hãy sắp xếp lại mảng theo thứ tự tăng dần và loại bỏ toàn bộ giá trị không phải là số hoặc là NaN của mảng.
+    // Viết hàm insertNumber(arr, num) để chèn số num vào mảng arr mà không làm thay đổi thứ tự tăng dần của mảng.
+    // Ví dụ:
+
+    function insertNumber(arr, num) {
+        // Xử lý và in ra kết quả
+
+        // Loại bỏ các giá trị không phải là số và NaN
+        arr = arr.filter(item => typeof item === 'number' && !isNaN(item));
+
+        // Kiểm tra xem num có phải là số và không phải NaN không
+        if (typeof num !== 'number' || isNaN(num)) {
+            return arr; // Nếu không, trả về mảng ban đầu
+        }
+        arr.push(num); // Thêm số num vào mảng
+        arr.sort((a, b) => a - b); // Sắp xếp mảng theo thứ tự tăng dần
+        return arr; // Trả về mảng đã được chèn và sắp xếp
+
+
+
+
+    }
+
+    // Test
+    console.log(insertNumber([1, 3, 5, 7, 9], 6)); // Output: [1, 3, 5, 6, 7, 9]
+    console.log(insertNumber([3, "hello", 1, NaN, 4, null], 2)); // Output: [1, 2, 3, 4]
+    console.log(insertNumber([], 5)); // Output: [5]
+    console.log(insertNumber([-1, 10, -5, "abc"], -3)); // Output: [-5, -3, -1, 10]
+    console.log(insertNumber([5, 2, 8], NaN)); // Output: [2, 5, 8]
+
+    insertNumber([1, 3, 5, 7, 9], 6); // Output: [1, 3, 5, 6, 7, 9]
+    insertNumber([3, "hello", 1, NaN, 4, null], 2); // Output: [1, 2, 3, 4]
+    insertNumber([], 5); // Output: [5]
+    insertNumber([-1, 10, -5, "abc"], -3); // Output: [-5, -3, -1, 10]
+    insertNumber([5, 2, 8], NaN); // Output: [2, 5, 8]
+</script>
+
+</html>
