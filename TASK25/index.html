@@ -8,7 +8,39 @@
 </head>
 
 <body>
+    <h1>Task25 </h1>
 
 </body>
+<script>// Input:
+    const fruits = [
+        "apple",
+        "banana",
+        "kiwi",
+        "kiwi",
+        "banana",
+        "orange",
+        "apple",
+        "kiwi",
+    ];
+
+    function removeDuplicate(arr) {
+        return arr.reduce((acc, curr) => {
+            const isDuplicate =
+                (typeof curr === "number" && Number.isNaN(curr) && acc.some(e => Number.isNaN(e))) ||
+                acc.includes(curr);
+
+            if (!isDuplicate) {
+                acc.push(curr);
+            }
+
+            return acc;
+        }, []);
+    }
+
+
+    // Output:
+    const result = removeDuplicate(fruits);
+
+    console.log(result); // ["apple", "banana", "kiwi", "orange"]</script>
 
 </html>
