@@ -8,7 +8,33 @@
 </head>
 
 <body>
+    <script>
+        const arrNumber = [1, 2, 3, 4, 5, 5, null, undefined, 6];
 
+        function reverseArr(arr) {
+
+            // Xử lý và in ra kết quả
+            const result = []
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] === null || arr[i] === undefined) {
+                    continue; // Bỏ qua các giá trị null và undefined
+                }
+                result.push(arr[i])
+
+
+            }
+            // Đảo ngược mảng
+            for (let i = 0; i < result.length / 2; i++) {
+                const temp = result[i];
+                result[i] = result[result.length - 1 - i];
+                result[result.length - 1 - i] = temp;
+            }
+            return result; // Thêm return để trả về kết quả
+        }
+        const result = reverseArr(arrNumber);
+        console.log(result); // [6,5,4,3,2,1]
+    </script>
 </body>
 
 </html>
