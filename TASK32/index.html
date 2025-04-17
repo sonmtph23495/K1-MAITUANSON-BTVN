@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Task 32: Lọc các chuỗi chứa từ khóa</h1>
+</body>
+<script>
+    /* Thực hiện viết hàm filterByKeyword để trả về các mảng chứa chuỗi các từ khóa
+
+Nếu không tìm được phần tử nào thì in ra []. */
+    // Input
+    const arrayString = ["JavaScript", "java", "Python", "Ruby"];
+    let keyWord = "ja";
+
+    function filterByKeyword(arrayString, keyWord) {
+        // Logic bài toán và trả về kết quả
+        const result = arrayString.filter((item) => item.toLowerCase().includes(keyWord.toLowerCase()));
+        return result.length > 0 ? result : "[]";
+
+
+
+    }
+    // Test
+
+    console.log(filterByKeyword(arrayString, keyWord)); //["JavaScript", "java"]
+</script>
+
+</html>

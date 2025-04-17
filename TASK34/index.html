@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h1>Task 34: Sắp xếp người dùng theo tên</h1>
+
+<body>
+
+</body>
+<script>// Input
+    const users = [
+        { fullname: "Hoang Thi K", age: 20, address: "LangSon" },
+        { fullname: "Le Thi X", age: 22, address: "BacGiang" },
+        { fullname: "Le Van Y", age: 21, address: "HaNoi" },
+        { fullname: "Hoang Duc F", age: 22, address: "HaNoi" },
+        { fullname: "Tran Duc B", age: 32, address: "LangSon" },
+        { fullname: "Tran Duc B", age: 32, address: "LangSon" },
+        { fullname: "Tran Thi E", age: 32, address: "LangSon" },
+        { fullname: "Nguyen Ngoc V", age: 32, address: "LangSon" },
+        { fullname: "Nguyen Minh E", age: 32, address: "LangSon" },
+        { fullname: "Nguyen Duc H", age: 32, address: "LangSon" },
+    ];
+    //Thực hiện viết hàm sortedUsers để sắp xếp người dùng theo tên chính
+    function sortedUsers(arrayUser) {
+        // Logic bài toán và trả về kết quả
+        const sortedArray = arrayUser.sort((a, b) => {
+            const nameA = a.fullname.toLowerCase();
+            const nameB = b.fullname.toLowerCase();
+            if (nameA < nameB) return -1;
+            if (nameA > nameB) return 1;
+            return 0;
+        });
+        return sortedArray;
+    }
+    // Test
+
+
+    console.log(sortedUsers(users));
+
+    // [
+    //   { fullname: "Tran Duc B", age: 32, address: "LangSon" },
+    //   { fullname: "Tran Duc B", age: 32, address: "LangSon" },
+    //   { fullname: "Tran Thi E", age: 32, address: "LangSon" },
+    //   { fullname: "Nguyen Minh E", age: 32, address: "LangSon" },
+    //   { fullname: "Hoang Duc F", age: 22, address: "HaNoi" },
+    //   { fullname: "Nguyen Duc H", age: 32, address: "LangSon" },
+    //   { fullname: "Hoang Thi K", age: 20, address: "LangSon" },
+    //   { fullname: "Nguyen Ngoc V", age: 32, address: "LangSon" },
+    //   { fullname: "Le Thi X", age: 22, address: "BacGiang" },
+    //   { fullname: "Le Van Y", age: 21, address: "HaNoi" }
+    // ]</script>
+
+</html>

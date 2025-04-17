@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Task 33: Biến đổi mảng chuỗi thành object</h1>
+</body>
+<script>
+    //Thực hiện viết hàm convertArrayToObject để biến đổi mảng các chuỗi dạng key:value thành object
+    // input
+    // Gợi ý dùng forEach hoặc reduce
+    const arrayString = ["name:John", "age:30", "city:NY"];
+
+    function convertArrayToObject(array) {
+        return array.reduce((obj, item) => {
+            const [key, value] = item.split(':');
+            obj[key] = value;
+            return obj;
+        }, {});
+    }
+    //Test
+
+    convertArrayToObject(arrayString); // { name: 'John', age: '30', city: 'NY' }
+    console.log(convertArrayToObject(arrayString)); // { name: 'John', age: '30', city: 'NY' }
+</script>
+
+</html>
