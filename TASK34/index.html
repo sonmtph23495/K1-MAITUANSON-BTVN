@@ -24,18 +24,25 @@
         { fullname: "Nguyen Minh E", age: 32, address: "LangSon" },
         { fullname: "Nguyen Duc H", age: 32, address: "LangSon" },
     ];
-    //Thực hiện viết hàm sortedUsers để sắp xếp người dùng theo tên chính
+    //Sắp xếp người dùng theo tên
     function sortedUsers(arrayUser) {
         // Logic bài toán và trả về kết quả
-        const sortedArray = arrayUser.sort((a, b) => {
-            const nameA = a.fullname.toLowerCase();
-            const nameB = b.fullname.toLowerCase();
+
+        return arrayUser.sort((a, b) => {
+            const getMainName = (fullname) => {
+                const parts = fullname.trim().split(" ");
+                return parts[parts.length - 1]; // lấy từ cuối cùng
+            };
+
+            const nameA = getMainName(a.fullname).toLowerCase();
+            const nameB = getMainName(b.fullname).toLowerCase();
+
             if (nameA < nameB) return -1;
             if (nameA > nameB) return 1;
             return 0;
         });
-        return sortedArray;
     }
+
     // Test
 
 
