@@ -1,14 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đồng Hồ Số</title>
+    <style>
+        #clock {
+            font-size: 2em;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
 
 <body>
+    <div id="clock"></div>
+    <script>
+        //Tạo một thẻ <div> với id="clock" để hiển thị đồng hồ số.
+        //Sử dụng JavaScript để cập nhật giờ hiện tại vào thẻ này mỗi giây một lần bằng cách sử dụng setInterval.
+        setInterval(function () {
+            const now = new Date(); // Lấy thời gian hiện tại
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
 
+            document.getElementById('clock').innerText = `${hours}:${minutes}:${seconds}`;
+        }, 1000);
+
+
+    </script>
 </body>
 
 </html>

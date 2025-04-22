@@ -1,0 +1,44 @@
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài tập DOM: Hiển thị dữ liệu ra bảng bằng chuỗi</title>
+    <style>
+        /* CSS cơ bản để bảng dễ nhìn */
+        table {
+            border-collapse: collapse;
+            margin: 20px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="dataTable"></table>
+</body>
+<script>
+    const students = [
+        { id: 1, name: "Nguyễn Văn A", age: 20, city: "Hà Nội" },
+        { id: 2, name: "Trần Thị B", age: 19, city: "TP.HCM" },
+        { id: 3, name: "Lê Văn C", age: 21, city: "Đà Nẵng" },
+    ];
+    function renderTable(data) {
+        let tableHTML = "<tr><th>ID</th><th>Tên</th><th>Tuổi</th><th>Thành phố</th></tr>";
+        data.forEach(student => {
+            tableHTML += `<tr><td>${student.id}</td><td>${student.name}</td><td>${student.age}</td><td>${student.city}</td></tr>`;
+        });
+        document.getElementById("dataTable").innerHTML = tableHTML;
+        document.getElementById("dataTable").style.border = "1px solid black";
+        document.getElementById("dataTable").style.width = "100%";
+    }
+
+    renderTable(students);
+</script>
+
+</html>
