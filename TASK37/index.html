@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thêm và Xóa Phần Tử với DOM</title>
+    <style>
+        .container {
+            margin: 20px;
+        }
+
+        .item {
+            padding: 10px;
+            margin: 5px;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Danh sách phần tử</h1>
+        <div id="list">
+            <div class="item">Phần tử 1</div>
+            <div class="item">Phần tử 2</div>
+        </div>
+        <button onclick="addItem()">Thêm phần tử</button>
+        <button onclick="removeItem()">Xóa phần tử</button>
+    </div>
+    <script>
+        let itemCount = 2; // Đếm số lượng phần tử hiện tại
+
+        function addItem() {
+            itemCount++;
+            const newItem = document.createElement("div");
+            newItem.className = "item";
+            newItem.textContent = `Phần tử ${itemCount}`;
+            document.getElementById("list").appendChild(newItem);
+        }
+        function removeItem() {
+            const item = document.querySelectorAll(".item");
+            if (item.length > 0) {
+                item[item.length - 1].remove(); // Xóa phần tử cuối cùng
+                itemCount--; // Giảm số lượng phần tử
+            } else {
+                alert("Không còn phần tử nào để xóa!");
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
