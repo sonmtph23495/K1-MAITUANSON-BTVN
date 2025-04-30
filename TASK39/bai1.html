@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Bài 1 : Viết một hàm getData nhận vào một callback và gọi callback đó sau 1 giây với dữ liệu là mảng[1, 2, 3, 4]
+</body>
+<script>  // Bài 1  Viết một hàm getData nhận vào một callback và gọi callback đó sau 1 giây với dữ liệu là mảng[1, 2, 3, 4].
+    function getData(callback) {
+        // Code của bạn ở đây
+        setTimeout(() => {
+            const data = [1, 2, 3, 4];
+            callback(data);
+        }, 1000);
+    }
+
+    // Sử dụng
+    getData((data) => {
+        console.log(data); // Sau 1 giây in ra: [1, 2, 3, 4]
+    });</script>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="todo-container">
+        <h1>Danh Sách Công Việc</h1>
+        <div class="input-section">
+            <div class="input-group">
+                <input type="text" id="todoInput" placeholder="Nhập công việc mới..." />
+                <button id="actionButton" onclick="addTodo()">Thêm</button>
+            </div>
+            <div id="errorMessage" class="error-message">Vui lòng nhập công việc!</div>
+        </div>
+        <div class="filter-section">
+            <button onclick="filterTodos('all')" class="active">Tất cả</button>
+            <button onclick="filterTodos('active')">Chưa hoàn thành</button>
+            <button onclick="filterTodos('completed')">Hoàn thành</button>
+        </div>
+        <ul class="todo-list" id="todoList"></ul>
+    </div>
+    <ul class="todo-list" id="todoList"></ul>
+    </div>
+</body>
+<script>
+    /* Yêu cầu:
+    Hiển thị danh sách công việc.
+    Có thể thêm, sưa, xóa công việc.
+    Khi ấn vào công việc có thể toggle trạng thái hoàn thành.
+    Có thể lọc công việc theo trạng thái.
+    Sử dụng Local Storage để lưu danh sách công việc. */
+
+</script>
+
+</html>

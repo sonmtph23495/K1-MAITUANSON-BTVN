@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Bài 3</h1>
+</body>
+<script>
+    /*     Yêu cầu: Thực hiện tuần tự theo các bước
+  
+  Viết các hàm lấy thông tin user
+  Lấy danh sách các sản phẩm đã mua sau 1s (dựa theo user đó)
+  Sau khi có danh sách sản phẩm thì lấy chi tiết từng sản phẩm
+  Tính tổng các giá trị sản phẩm */
+    function getUser(userId, callback) {
+        setTimeout(() => {
+            callback({ id: userId, name: "John", age: 30 });
+        }, 1000);
+    }
+
+    function getPurchases(userId, callback) {
+        setTimeout(() => {
+            callback([
+                { id: 1, userId: userId, product: "Laptop", price: 1000 },
+                { id: 2, userId: userId, product: "Phone", price: 2000 },
+            ]);
+        }, 1000);
+    }
+
+    function getProductDetails(productId, productName, callback) {
+        setTimeout(() => {
+            callback({ id: productId, name: productName, price: 1000 });
+        }, 1000);
+    }
+
+
+
+    //Bài 3 Yêu cầu: Giải quyết bài toán 1 trên bằng async/await
+    async function getUserAsync(userId) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve({ id: userId, name: "John", age: 30 });
+            }, 1000);
+        });
+    }
+
+    async function getPurchasesAsync(userId) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve([
+                    { id: 1, userId: userId, product: "Laptop", price: 1000 },
+                    { id: 2, userId: userId, product: "Phone", price: 2000 },
+                ]);
+            }, 1000);
+        });
+    }
+
+    async function getProductDetailsAsync(productId, productName) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve({ id: productId, name: productName, price: 1000 });
+            }, 1000);
+        });
+    }
+    (async () => {
+        const user = await getUserAsync(1);
+        console.log("User", user)
+        const purchases = await getPurchasesAsync(user.id);
+        console.log("Purchases", purchases)
+        let total = 0;
+        for (const purchase of purchases) {
+            const productDetails = await getProductDetailsAsync(purchase.id, purchase.product);
+            console.log("Product Details", productDetails)
+            total += productDetails.price;
+            console.log("Total Price", total);
+        }
+    })()
+
+</script>
+
+</html>
