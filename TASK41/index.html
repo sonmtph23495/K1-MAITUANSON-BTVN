@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
     <div class="todo-container">
         <h1>Danh Sách Công Việc</h1>
@@ -33,8 +34,86 @@
     Hiển thị danh sách công việc.
     Có thể thêm, sưa, xóa công việc.
     Khi ấn vào công việc có thể toggle trạng thái hoàn thành.
-    Có thể lọc công việc theo trạng thái.
+    Có thể lọc công việc theo trạng thái hai trang thái màu chữ xanh và đỏ.
     Sử dụng Local Storage để lưu danh sách công việc. */
+
+    let todos = JSON.parse(localStorage.getItem("todos")) || [];
+    let currentFilter = 'all';
+
+    const todoInput = document.getElementById('todoInput');
+    const todoList = document.getElementById('todoList');
+    const errorMessage = document.getElementById('errorMessage');
+
+    function saveTodos() {
+        localStorage.setItem("todos", JSON.stringify(todos));
+    }
+
+    function renderTodos() {
+        todoList.innerHTML = '';
+        const filteredTodos = todos.filter(todo => {
+            if (currentFilter === 'active') return !todo.completed;
+            if (currentFilter === 'completed') return todo.completed;
+            return true;
+        });
+
+        filteredTodos.forEach((todo, index) => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <span onclick="toggleTodo(${index})" style="cursor:pointer; color:${todo.completed ? 'green' : 'red'}">
+                    ${todo.text}
+                </span>
+                <button onclick="editTodo(${index})">Sửa</button>
+                <button onclick="deleteTodo(${index})">Xoá</button>
+            `;
+            todoList.appendChild(li);
+        });
+    }
+
+    function addTodo() {
+        const text = todoInput.value.trim();
+        if (!text) {
+            errorMessage.style.display = 'block';
+            return;
+        }
+        errorMessage.style.display = 'none';
+        todos.push({ text, completed: false });
+        saveTodos();
+        todoInput.value = '';
+        renderTodos();
+    }
+
+    function toggleTodo(index) {
+        todos[index].completed = !todos[index].completed;
+        saveTodos();
+        renderTodos();
+    }
+
+    function editTodo(index) {
+        const newText = prompt("Sửa công việc:", todos[index].text);
+        if (newText !== null && newText.trim() !== "") {
+            todos[index].text = newText.trim();
+            saveTodos();
+            renderTodos();
+        }
+    }
+
+    function deleteTodo(index) {
+        if (confirm("Bạn có chắc muốn xoá công việc này?")) {
+            todos.splice(index, 1);
+            saveTodos();
+            renderTodos();
+        }
+    }
+
+    function filterTodos(filter) {
+        currentFilter = filter;
+        document.querySelectorAll(".filter-section button").forEach(btn => btn.classList.remove("active"));
+        event.target.classList.add("active");
+        renderTodos();
+    }
+
+    // Khởi tạo
+    renderTodos();
 
 </script>
 

@@ -123,3 +123,25 @@ body {
     margin-top: 5px;
     display: none;
   }
+  .error-message {
+    color: red;
+    display: none;
+    margin-top: 5px;
+}
+
+.todo-list li {
+    margin: 8px 0;
+}
+
+.todo-list span {
+    margin-right: 10px;
+}
+
+.filter-section button.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.filter-section button {
+    margin-right: 5px;
+}
