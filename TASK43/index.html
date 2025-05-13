@@ -32,6 +32,7 @@
                     <th>Image</th>
                     <th>Description</th>
                     <th class="sortable" onclick="sortTableByPrice()">Price ▲▼</th>
+                    <th>Action</th>
                 </tr>
 
 
@@ -76,7 +77,9 @@
     const fetchProducts = () => {
         fetch(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`)
             .then(response => response.json())
+
             .then(data => {
+                
                 totalPages = Math.ceil(data.total / limit);
                 productData.innerHTML = '';
                 data.products.forEach(product => {
@@ -86,6 +89,8 @@
                         <td><img src="${product.images}" alt="${product.title}" width="100"></td>
                         <td>${product.description.length > 50 ? product.description.slice(0, 50) + '...' : product.description}</td>
                         <td>${product.price}</td>
+                        <td><button class="btn btn-primary" onclick="productDetail()"> View</button></td>
+
                         
                     `;
                     productData.appendChild(row);
@@ -98,7 +103,7 @@
     // Gọi hàm để lấy dữ liệu sản phẩm khi trang được tải
     fetchProducts();
 
-    // Hiển thị khi di chuột vào  popup chi tiết sản phẩm 
+    // Hiển thị khi di chuột vào  popup chi tiết sản phẩm  
     function productDetail() {
         const rows = Array.from(productData.rows);
         rows.forEach(row => {
@@ -108,12 +113,15 @@
                 const productDescription = row.cells[2].innerText;
                 const productPrice = row.cells[3].innerText;
 
+
                 const detailDiv = document.createElement('div');
                 detailDiv.innerHTML = `
                     <h3>${productName}</h3>
                     <img src="${productImage}" alt="${productName}" width="200">
                     <p>${productDescription}</p>
                     <p>Price: ${productPrice}</p>
+                
+
                 `;
                 detailDiv.style.position = 'fixed';
                 detailDiv.style.top = '50%';
@@ -124,6 +132,8 @@
                 detailDiv.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
                 detailDiv.style.zIndex = '1000';
                 document.body.appendChild(detailDiv);
+                //Hiển thị số lượng sản phầm đang xem
+
                 // chon vào sản phẩm khác thì sẽ xóa đi
                 rows.forEach(row => {
                     row.addEventListener('click', () => {
